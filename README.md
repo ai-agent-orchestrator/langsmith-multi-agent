@@ -7,6 +7,7 @@
 |---|---|---|
 | A. 슈퍼바이저 | `travel_planner/supervisor_graph.py` | "일정 다 짜줘" 원샷 일정표 (예약 불가) |
 | B. 핸드오프 | `travel_planner/handoff_graph.py` | 대화하며 하나씩 정하고 예약 |
+| 계층형 | `travel_planner/hierarchical_graph.py` | 하위 에이전트 10개 이상: 총괄 → 팀장 3 → 전문 에이전트 7 |
 | A+B 하이브리드 | `travel_planner/hybrid_graph.py` | 초안 생성 → 사용자 승인 → 예약 대화로 이양 |
 
 ## 구조
@@ -14,6 +15,8 @@
 - **A**: `supervisor ⇄ {weather, restaurant, hotel}`. 비 오면 실내 맛집 → 맛집 동선 근처 숙소 → 종합. 숙소 에이전트는 예약 툴 없음.
 - **B**: `weather ⇄ restaurant ⇄ hotel`. `transfer_to_*` 툴로 제어권을 넘기며 `MemorySaver`로 멀티턴 유지.
 - **A+B**: `planner(A) → approval(interrupt) → hotel_booking`. 거절/변경 시 `planner`로 복귀. `draft_plan`을 State로 넘겨 날짜·지역을 다시 묻지 않음.
+
+- **계층형**: `travel_director → {planning_lead, booking_lead, support_lead} → 전문 에이전트`. 각 슈퍼바이저 선택지 3개 이하, 에이전트당 툴 3개 이하.
 
 ## 사용 예
 
