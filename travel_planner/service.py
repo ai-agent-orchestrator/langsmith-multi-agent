@@ -10,9 +10,11 @@ def _builders() -> dict[str, Any]:
     from .handoff_graph import build_handoff_app
     from .hierarchical_graph import build_hierarchical_app
     from .hybrid_graph import build_hybrid_app
+    from .single_graph import build_single_app
     from .supervisor_graph import build_supervisor_app
 
     return {
+        "single": build_single_app,
         "supervisor": build_supervisor_app,
         "handoff": build_handoff_app,
         "hybrid": build_hybrid_app,

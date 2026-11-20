@@ -22,7 +22,7 @@ from langsmith.anonymizer import create_anonymizer
 MODES = ("off", "masked", "closed")
 
 # 구조별 재귀 한도: 계층형은 호출 단계가 깊으므로 더 크게 둔다.
-RECURSION_LIMITS = {"supervisor": 25, "handoff": 25, "hybrid": 30, "hierarchical": 40}
+RECURSION_LIMITS = {"single": 15, "supervisor": 25, "handoff": 25, "hybrid": 30, "hierarchical": 40}
 
 # ---------------------------------------------------------------- 마스킹
 MASK_RULES = [
