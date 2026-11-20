@@ -2,3 +2,4 @@ langgraph
 langgraph-supervisor
 langchain-core
 langchain-anthropic
+langsmith
